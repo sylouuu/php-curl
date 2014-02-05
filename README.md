@@ -1,4 +1,4 @@
-php-reset-client
-================
+## PHP requirements
 
-Submit REST requests over HTTP
+PHP >= 5.4
+cURL enabled
