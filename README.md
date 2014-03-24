@@ -77,7 +77,7 @@
 
 2014-03-24 - **0.0.2**
 
-* added $api_url as a constructor parameter
+* added ```$api_url``` as a constructor parameter
 
 2014-02-05 - **0.0.1**
 
