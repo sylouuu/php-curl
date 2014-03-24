@@ -19,11 +19,11 @@
         /**
         * Constructor
         */
-        public function __construct() {
+        public function __construct($api_url) {
             /**
             * API server
             */
-            $this->api_url = 'http://api.domain.com/';
+            $this->api_url = $api_url;
         }
 
         /**
