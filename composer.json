@@ -13,6 +13,6 @@
         "issues": "https://github.com/sylouuu/php-rest-client/issues"
     },
     "require": {
-        "phpunit/phpunit": "4.0.0"
+        "phpunit/phpunit": "4.0.*"
     }
 }
