@@ -1,5 +1,19 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "4.0.*"
-    }
+    "name": "sylouuu/php-rest-client",
+    "description": "Submit REST requests over HTTP",
+    "version": "0.1.0",
+    "type": "library",
+    "keywords": [
+        "rest",
+        "http",
+        "api"
+    ],
+    "homepage": "https://github.com/sylouuu/php-rest-client",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/sylouuu/php-rest-client/issues"
+    },
+    "require": {
+        "phpunit/phpunit": "4.0.0"
+    },
 }

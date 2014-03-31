@@ -105,22 +105,6 @@
         }
 
         /**
-        * Standard POST request with data
-        */
-        public function testPostRequestdata() {
-            $result = $this->rest_client->post([
-                'url'       => $this->endpoint['headers'],
-                'data'      => [
-                    'foo' => 'bar'
-                ]
-            ]);
-
-            var_dump($result);
-
-            $this->assertArrayHasKey('ip', json_decode($result, true));
-        }
-
-        /**
         * Standard POST request with data & specific header
         */
         public function testPostRequestWithHeader() {

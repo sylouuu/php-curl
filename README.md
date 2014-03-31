@@ -3,30 +3,47 @@
 * PHP >= 5.4
 * cURL enabled
 
+## Install
+
+### Composer
+
+* Add RESTClient to your ```composer.json``` file: ```composer require sylouuu/php-rest-client```
+* Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
+
+### Manually
+
+* [Download](https://github.com/sylouuu/php-rest-client/releases) the latest release.
+* Include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
+
 ## Usage
 
 ```php
 <?php
-    /**
-    * Including library
-    */
-    include('path/to/RESTClient.class.php');
-
-    /**
-    * Instanciating
-    */
-    $rest_client = new RESTClient('http://api.domain.com/');
+    $rest_client = new RESTClient();
 ?>
 ```
+
+```GET```, ```POST```, ```PUT``` and ```DELETE``` methods are available. For each, you have to specify the ```url``` option.
+
+You can specify additional headers with the ```headers``` option, see examples below.
+
+The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
 
 ### GET
 
 ```php
 <?php
-    /**
-    * Querying server (GET)
-    */
-    $json = $rest_client->get('users/1');
+    $json = $rest_client->get([
+        'url' => 'http://api.domain.com/'
+    ]);
+
+    // With header
+    $json = $rest_client->get([
+        'url'       => 'http://api.domain.com/',
+        'headers'   => [
+            'Foo: bar'
+        ]
+    ]);
 ?>
 ```
 
@@ -34,15 +51,13 @@
 
 ```php
 <?php
-    $data = [
-        'name' => 'Syl',
-        'url' => 'http://chez-syl.fr/'
-    ];
-
-    /**
-    * Querying server (POST)
-    */
-    $json = $rest_client->post('users', $data);
+    $json = $rest_client->post([
+        'url'   => 'http://api.domain.com/',
+        'data'  => [
+            'name'  => 'Syl',
+            'url'   => 'http://chez-syl.fr/'
+        ]
+    ]);
 ?>
 ```
 
@@ -50,15 +65,13 @@
 
 ```php
 <?php
-    $data = [
-        'name' => 'Syl',
-        'url' => 'http://chez-syl.fr/'
-    ];
-
-    /**
-    * Querying server (PUT)
-    */
-    $json = $rest_client->put('users/1', $data);
+    $json = $rest_client->put([
+        'url'   => 'http://api.domain.com/',
+        'data'  => [
+            'name'  => 'Syl',
+            'url'   => 'http://chez-syl.fr/'
+        ]
+    ]);
 ?>
 ```
 
@@ -66,14 +79,26 @@
 
 ```php
 <?php
-    /**
-    * Querying server (DELETE)
-    */
-    $json = $rest_client->delete('users/1');
+    $json = $rest_client->delete([
+        'url'   => 'http://api.domain.com/'
+    ]);
 ?>
 ```
 
+## Tests
+
+On project directory:
+
+* ```npm update``` to retrieve ```gulp```
+* Type: ```gulp```
+
 ## Changelog
+
+2014-04-04 - **0.1.0**
+
+* refactored class
+* removed constructor parameter
+* added unit tests
 
 2014-03-24 - **0.0.2**
 

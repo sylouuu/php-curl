@@ -85,7 +85,7 @@
                 /**
                 * Opening PHP memory
                 */
-                $memory = fopen('php://memory', 'rw');
+                $memory = fopen('php://temp', 'rw+');
                 fwrite($memory, $options['data']);
                 rewind($memory);
 
