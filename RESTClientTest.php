@@ -29,7 +29,7 @@
             $this->rest_client = new RESTClient();
 
             /**
-            * Settings endpoint URL
+            * Setting endpoint URL
             */
             $this->endpoint['default'] = 'http://ip.jsontest.com/';
             $this->endpoint['headers'] = 'http://headers.jsontest.com/';
@@ -44,7 +44,7 @@
         * @expectedException InvalidArgumentException
         * @expectedExceptionMessage No data provided for that POST request
         */
-        public function testPostRequestWithoutData() {
+        public function testExceptionPostRequestWithoutData() {
             $this->rest_client->post([
                 'url' => $this->endpoint['default']
             ]);
@@ -56,7 +56,7 @@
         * @expectedException InvalidArgumentException
         * @expectedExceptionMessage No data provided for that PUT request
         */
-        public function testPutRequestWithoutData() {
+        public function testExceptionPutRequestWithoutData() {
             $this->rest_client->put([
                 'url' => $this->endpoint['default']
             ]);
@@ -138,7 +138,7 @@
                 ]
             ]);
 
-            $this->assertEquals(true, $result = strpos($result, 'PUT'));
+            $this->assertEquals(true, strpos($result, 'PUT'));
         }
 
         /**

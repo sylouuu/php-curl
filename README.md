@@ -94,7 +94,7 @@ On project directory:
 
 ## Changelog
 
-2014-04-04 - **0.1.0**
+2014-04-01 - **0.1.0**
 
 * refactored class
 * removed constructor parameter
