@@ -11,3 +11,6 @@ before_script:
 
 script:
     - gulp
+
+notifications:
+    email: false
