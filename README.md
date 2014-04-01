@@ -1,6 +1,8 @@
 # PHP REST Client
 
 [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.png)](https://travis-ci.org/sylouuu/php-rest-client)
+[![Latest Stable Version](https://poser.pugx.org/sylouuu/php-rest-client/v/stable.png)](https://packagist.org/packages/sylouuu/php-rest-client)
+[![License](https://poser.pugx.org/sylouuu/php-rest-client/license.png)](https://packagist.org/packages/sylouuu/php-rest-client)
 
 ## PHP requirements
 
@@ -14,7 +16,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-rest-clien": "0.1.*"
+        "sylouuu/php-rest-client": "0.1.*"
     }
 }
 ```
