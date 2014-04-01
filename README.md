@@ -7,13 +7,19 @@
 
 ### Composer
 
-* Add RESTClient to your ```composer.json``` file: ```composer require sylouuu/php-rest-client```
-* Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
+```js
+{
+    "require": {
+        "sylouuu/php-rest-clien": "0.1.*"
+    }
+}
+```
+
+Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
 
 ### Manually
 
-* [Download](https://github.com/sylouuu/php-rest-client/releases) the latest release.
-* Include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
+* [Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
 
 ## Usage
 
