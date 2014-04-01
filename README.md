@@ -1,3 +1,7 @@
+# PHP REST Client
+
+[![Build Status](https://travis-ci.org/sylouuu/php-rest-client.png)](https://travis-ci.org/sylouuu/php-rest-client)
+
 ## PHP requirements
 
 * PHP >= 5.4
