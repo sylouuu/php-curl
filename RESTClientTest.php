@@ -17,6 +17,9 @@
         private $rest_client;
         private $endpoint;
 
+        /**
+        * Considers as a constructor
+        */
         public function setUp() {
             /**
             * Including the class to test
