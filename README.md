@@ -16,7 +16,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-rest-client": "0.1.*"
+        "sylouuu/php-rest-client": "0.2.*"
     }
 }
 ```
