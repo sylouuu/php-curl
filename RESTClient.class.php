@@ -7,9 +7,34 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-rest-client
+    * @version 0.2.0
     * @license MIT
     */
     class RESTClient {
+
+        /**
+        * Properties
+        */
+        private $status;
+        private $json;
+
+        /**
+        * Getter HTTP status code
+        *
+        * @return integer
+        */
+        public function getStatus() {
+            return $this->status;
+        }
+
+        /**
+        * Getter JSON result
+        *
+        * @return json
+        */
+        public function getJSON() {
+            return $this->json;
+        }
 
         /**
         * GET request
@@ -24,7 +49,12 @@
             */
             $handle = curl_init($options['url']);
 
-            return $this->process($handle, $options);
+            /**
+            * Setting JSON result
+            */
+            $this->json = $this->process($handle, $options);
+
+            return $this;
         }
 
         /**
@@ -57,7 +87,12 @@
             */
             curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'POST');
 
-            return $this->process($handle, $options);
+            /**
+            * Setting JSON result
+            */
+            $this->json = $this->process($handle, $options);
+
+            return $this;
         }
 
         /**
@@ -104,7 +139,12 @@
             */
             curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'PUT');
 
-            return $this->process($handle, $options);
+            /**
+            * Setting JSON result
+            */
+            $this->json = $this->process($handle, $options);
+
+            return $this;
         }
 
         /**
@@ -125,7 +165,12 @@
             */
             curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'DELETE');
 
-            return $this->process($handle, $options);
+            /**
+            * Setting JSON result
+            */
+            $this->json = $this->process($handle, $options);
+
+            return $this;
         }
 
         /**
@@ -149,6 +194,11 @@
             * Result
             */
             $json = curl_exec($handle);
+
+            /**
+            * Setting HTTP status code
+            */
+            $this->status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
 
             /**
             * Closing handle

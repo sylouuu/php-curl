@@ -45,9 +45,15 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
 
 ```php
 <?php
-    $json = $rest_client->get([
+    $request = $rest_client->get([
         'url' => 'http://api.domain.com/'
     ]);
+
+    // Get JSON result
+    $json = $request->getJSON();
+
+    // You have access to the HTTP status code
+    $status = $request->getStatus();
 
     // With header
     $json = $rest_client->get([
@@ -55,7 +61,7 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
         'headers'   => [
             'Foo: bar'
         ]
-    ]);
+    ])->getJSON();
 ?>
 ```
 
@@ -69,7 +75,7 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
             'name'  => 'Syl',
             'url'   => 'http://chez-syl.fr/'
         ]
-    ]);
+    ])->getJSON();
 ?>
 ```
 
@@ -83,7 +89,7 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
             'name'  => 'Syl',
             'url'   => 'http://chez-syl.fr/'
         ]
-    ]);
+    ])->getJSON();
 ?>
 ```
 
@@ -93,7 +99,7 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
 <?php
     $json = $rest_client->delete([
         'url'   => 'http://api.domain.com/'
-    ]);
+    ])->getJSON();
 ?>
 ```
 
@@ -105,6 +111,11 @@ On project directory:
 * Type: ```gulp```
 
 ## Changelog
+
+2014-04-04 - **0.2.0**
+
+* new way to retrieve result
+* added HTTP status code
 
 2014-04-01 - **0.1.0**
 

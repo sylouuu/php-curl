@@ -1,12 +1,13 @@
 <?php
 
     /**
-    * REST Client (test)
+    * REST Client (unit tests)
     *
     * Submit REST requests over HTTP
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-rest-client
+    * @version 0.2.0
     * @license MIT
     */
     class RESTClientTest extends PHPUnit_Framework_TestCase {
@@ -72,46 +73,49 @@
         * Standard GET request
         */
         public function testGetRequest() {
-            $result = $this->rest_client->get([
+            $request = $this->rest_client->get([
                 'url' => $this->endpoint['default']
             ]);
 
-            $this->assertArrayHasKey('ip', json_decode($result, true));
+            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertArrayHasKey('ip', json_decode($request->getJSON(), true));
         }
 
         /**
         * Standard GET request with specific header
         */
         public function testGetRequestWithHeader() {
-            $result = $this->rest_client->get([
+            $request = $this->rest_client->get([
                 'url'       => $this->endpoint['headers'],
                 'headers'   => [
                     'Authorization: foobar'
                 ]
             ]);
 
-            $this->assertArrayHasKey('Authorization', json_decode($result, true));
+            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertArrayHasKey('Authorization', json_decode($request->getJSON(), true));
         }
 
         /**
         * Standard POST request with data
         */
         public function testPostRequest() {
-            $result = $this->rest_client->post([
+            $request = $this->rest_client->post([
                 'url'       => $this->endpoint['default'],
                 'data'      => [
                     'foo' => 'bar'
                 ]
             ]);
 
-            $this->assertArrayHasKey('ip', json_decode($result, true));
+            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertArrayHasKey('ip', json_decode($request->getJSON(), true));
         }
 
         /**
         * Standard POST request with data & specific header
         */
         public function testPostRequestWithHeader() {
-            $result = $this->rest_client->post([
+            $request = $this->rest_client->post([
                 'url'       => $this->endpoint['headers'],
                 'headers'   => [
                     'Authorization: foobar'
@@ -121,7 +125,8 @@
                 ]
             ]);
 
-            $this->assertArrayHasKey('Authorization', json_decode($result, true));
+            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertArrayHasKey('Authorization', json_decode($request->getJSON(), true));
         }
 
         // Errors
@@ -134,14 +139,15 @@
         * so that it checks the error message
         */
         public function testPutRequest() {
-            $result = $this->rest_client->put([
+            $request = $this->rest_client->put([
                 'url'       => $this->endpoint['default'],
                 'data'      => [
                     'foo' => 'bar'
                 ]
             ]);
 
-            $this->assertEquals(true, strpos($result, 'PUT'));
+            $this->assertEquals(405, json_decode($request->getStatus(), true));
+            $this->assertEquals(true, strpos($request->getJSON(), 'PUT'));
         }
 
         /**
@@ -151,11 +157,12 @@
         * so that it checks the error message
         */
         public function testDeleteRequest() {
-            $result = $this->rest_client->delete([
+            $request = $this->rest_client->delete([
                 'url' => $this->endpoint['default']
             ]);
 
-            $this->assertEquals(true, strpos($result, 'DELETE'));
+            $this->assertEquals(405, json_decode($request->getStatus(), true));
+            $this->assertEquals(true, strpos($request->getJSON(), 'DELETE'));
         }
 
     }
