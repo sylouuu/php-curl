@@ -1,5 +1,6 @@
 # PHP REST Client
 
+[![devDependency Status](https://david-dm.org/sylouuu/php-rest-client/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-rest-client#info=devDependencies)
 [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.png)](https://travis-ci.org/sylouuu/php-rest-client)
 [![Latest Stable Version](https://poser.pugx.org/sylouuu/php-rest-client/v/stable.png)](https://packagist.org/packages/sylouuu/php-rest-client)
 [![License](https://poser.pugx.org/sylouuu/php-rest-client/license.png)](https://packagist.org/packages/sylouuu/php-rest-client)
@@ -25,7 +26,7 @@ Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
 
 ### Manually
 
-* [Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
+[Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
 
 ## Usage
 
