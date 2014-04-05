@@ -35,8 +35,9 @@
             /**
             * Setting endpoint URL
             */
-            $this->endpoint['default'] = 'http://ip.jsontest.com/';
-            $this->endpoint['headers'] = 'http://headers.jsontest.com/';
+            $this->endpoint['default']  = 'http://ip.jsontest.com/';
+            $this->endpoint['headers']  = 'http://headers.jsontest.com/';
+            $this->endpoint['notfound'] = 'http://404.jsontest.com/';
         }
 
         // Exceptions
@@ -77,7 +78,7 @@
                 'url' => $this->endpoint['default']
             ]);
 
-            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertEquals(200, $request->getStatus());
             $this->assertArrayHasKey('ip', json_decode($request->getJSON(), true));
         }
 
@@ -92,7 +93,7 @@
                 ]
             ]);
 
-            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertEquals(200, $request->getStatus());
             $this->assertArrayHasKey('Authorization', json_decode($request->getJSON(), true));
         }
 
@@ -107,7 +108,7 @@
                 ]
             ]);
 
-            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertEquals(200, $request->getStatus());
             $this->assertArrayHasKey('ip', json_decode($request->getJSON(), true));
         }
 
@@ -125,7 +126,7 @@
                 ]
             ]);
 
-            $this->assertEquals(200, json_decode($request->getStatus(), true));
+            $this->assertEquals(200, $request->getStatus());
             $this->assertArrayHasKey('Authorization', json_decode($request->getJSON(), true));
         }
 
@@ -146,7 +147,7 @@
                 ]
             ]);
 
-            $this->assertEquals(405, json_decode($request->getStatus(), true));
+            $this->assertEquals(405, $request->getStatus());
             $this->assertEquals(true, strpos($request->getJSON(), 'PUT'));
         }
 
@@ -161,8 +162,21 @@
                 'url' => $this->endpoint['default']
             ]);
 
-            $this->assertEquals(405, json_decode($request->getStatus(), true));
+            $this->assertEquals(405, $request->getStatus());
             $this->assertEquals(true, strpos($request->getJSON(), 'DELETE'));
+        }
+
+        /**
+        * Standard GET request
+        *
+        * This endpoint does not exist
+        */
+        public function testEndpointNotFound() {
+            $request = $this->rest_client->get([
+                'url' => $this->endpoint['notfound']
+            ]);
+
+            $this->assertEquals(404, $request->getStatus());
         }
 
     }
