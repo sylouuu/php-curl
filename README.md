@@ -113,6 +113,10 @@ On project directory:
 
 ## Changelog
 
+2014-04-06 - **0.2.1**
+
+* added exception if invalid JSON format returned
+
 2014-04-04 - **0.2.0**
 
 * new way to retrieve result
