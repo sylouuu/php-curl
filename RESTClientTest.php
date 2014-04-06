@@ -7,7 +7,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-rest-client
-    * @version 0.2.0
+    * @version 0.2.1
     * @license MIT
     */
     class RESTClientTest extends PHPUnit_Framework_TestCase {
@@ -37,7 +37,6 @@
             */
             $this->endpoint['default']  = 'http://ip.jsontest.com/';
             $this->endpoint['headers']  = 'http://headers.jsontest.com/';
-            $this->endpoint['notfound'] = 'http://404.jsontest.com/';
         }
 
         // Exceptions
@@ -63,6 +62,37 @@
         */
         public function testExceptionPutRequestWithoutData() {
             $this->rest_client->put([
+                'url' => $this->endpoint['default']
+            ]);
+        }
+
+        /**
+        * Standard PUT request with data
+        *
+        * This endpoint disables PUT request
+        * so that it returns HTML
+        *
+        * @expectedException UnexpectedValueException
+        */
+        public function testExceptionPutRequestWithDataButHTMLReturned() {
+            $this->rest_client->put([
+                'url' => $this->endpoint['default'],
+                'data'      => [
+                    'foo' => 'bar'
+                ]
+            ]);
+        }
+
+        /**
+        * Standard DELETE request with data
+        *
+        * This endpoint disables DELETE request
+        * so that it returns HTML
+        *
+        * @expectedException UnexpectedValueException
+        */
+        public function testExceptionDeleteRequestButHTMLReturned() {
+            $this->rest_client->delete([
                 'url' => $this->endpoint['default']
             ]);
         }
@@ -128,55 +158,6 @@
 
             $this->assertEquals(200, $request->getStatus());
             $this->assertArrayHasKey('Authorization', json_decode($request->getJSON(), true));
-        }
-
-        // Errors
-        // ------------------------------------------------------------------------------------------------------
-
-        /**
-        * Standard PUT request with data
-        *
-        * This endpoint disables PUT request
-        * so that it checks the error message
-        */
-        public function testPutRequest() {
-            $request = $this->rest_client->put([
-                'url'       => $this->endpoint['default'],
-                'data'      => [
-                    'foo' => 'bar'
-                ]
-            ]);
-
-            $this->assertEquals(405, $request->getStatus());
-            $this->assertEquals(true, strpos($request->getJSON(), 'PUT'));
-        }
-
-        /**
-        * Standard DELETE request with data
-        *
-        * This endpoint disables DELETE request
-        * so that it checks the error message
-        */
-        public function testDeleteRequest() {
-            $request = $this->rest_client->delete([
-                'url' => $this->endpoint['default']
-            ]);
-
-            $this->assertEquals(405, $request->getStatus());
-            $this->assertEquals(true, strpos($request->getJSON(), 'DELETE'));
-        }
-
-        /**
-        * Standard GET request
-        *
-        * This endpoint does not exist
-        */
-        public function testEndpointNotFound() {
-            $request = $this->rest_client->get([
-                'url' => $this->endpoint['notfound']
-            ]);
-
-            $this->assertEquals(404, $request->getStatus());
         }
 
     }

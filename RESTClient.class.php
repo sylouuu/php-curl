@@ -7,7 +7,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-rest-client
-    * @version 0.2.0
+    * @version 0.2.1
     * @license MIT
     */
     class RESTClient {
@@ -186,6 +186,9 @@
             */
             curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
 
+            /**
+            * Additional headers
+            */
             if(isset($options['headers']) && count($options['headers']) > 0) {
                 curl_setopt($handle, CURLOPT_HTTPHEADER, $options['headers']);
             }
@@ -199,6 +202,13 @@
             * Setting HTTP status code
             */
             $this->status = curl_getinfo($handle, CURLINFO_HTTP_CODE);
+
+            /**
+            * Testing JSON format
+            */
+            if(json_decode($json) === null) {
+                throw new UnexpectedValueException('This string is not a valid JSON format: '. $json);
+            }
 
             /**
             * Closing handle
