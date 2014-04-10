@@ -22,11 +22,11 @@
 }
 ```
 
-Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
+Include `RESTClient`: `require_once 'vendor/autoload.php';`
 
 ### Manually
 
-[Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include ```RESTClient```: ```require_once 'path/to/RESTClient.class.php';```
+[Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include `RESTClient`: `require_once 'path/to/RESTClient.class.php';`
 
 ## Usage
 
@@ -36,11 +36,11 @@ Include ```RESTClient```: ```require_once 'vendor/autoload.php';```
 ?>
 ```
 
-```GET```, ```POST```, ```PUT``` and ```DELETE``` methods are available. For each, you have to specify the ```url``` option.
+`GET`, `POST`, `PUT` and `DELETE` methods are available. For each, you have to specify the `url` option.
 
-You can specify additional headers with the ```headers``` option, see examples below.
+You can specify additional headers with the `headers` option, see examples below.
 
-The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
+The `data` option is mandatory for  `POST` and `PUT` requests.
 
 ### GET
 
@@ -108,8 +108,9 @@ The ```data``` option is mandatory for  ```POST``` and ```PUT``` requests.
 
 On project directory:
 
-* ```npm update``` to retrieve ```gulp```
-* Type: ```gulp```
+* `composer install` to retrieve `phpunit`
+* `npm install` to retrieve `gulp` and `gulp-phpunit`
+* Type: `gulp` to launch unit tests
 
 ## Changelog
 
@@ -130,7 +131,7 @@ On project directory:
 
 2014-03-24 - **0.0.2**
 
-* added ```$api_url``` as a constructor parameter
+* added `$api_url` as a constructor parameter
 
 2014-02-05 - **0.0.1**
 
