@@ -3,7 +3,7 @@
     /**
     * REST Client
     *
-    * Submit REST requests over HTTP
+    * Submit REST requests from PHP
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-rest-client
