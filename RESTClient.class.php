@@ -177,6 +177,7 @@
         * Executes the request
         *
         * @param object $handle The cURL resource
+        * @param array $options The options
         *
         * @return json
         */
@@ -207,7 +208,7 @@
             * Testing JSON format
             */
             if(json_decode($json) === null) {
-                throw new UnexpectedValueException('This string is not a valid JSON format: '. $json);
+                throw new UnexpectedValueException('This output is not a valid JSON format: '. $json);
             }
 
             /**
