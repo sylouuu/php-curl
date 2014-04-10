@@ -5,7 +5,7 @@
 [![Latest Stable Version](https://poser.pugx.org/sylouuu/php-rest-client/v/stable.png)](https://packagist.org/packages/sylouuu/php-rest-client)
 [![License](https://poser.pugx.org/sylouuu/php-rest-client/license.png)](https://packagist.org/packages/sylouuu/php-rest-client)
 
-## PHP requirements
+## Requirements
 
 * PHP >= 5.4
 * [cURL](http://php.net/manual/fr/book.curl.php/) library enabled
