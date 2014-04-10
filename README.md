@@ -8,7 +8,7 @@
 ## PHP requirements
 
 * PHP >= 5.4
-* cURL enabled
+* [cURL](http://php.net/manual/fr/book.curl.php/) library enabled
 
 ## Install
 
