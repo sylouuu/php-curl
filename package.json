@@ -1,7 +1,7 @@
 {
     "name": "php-rest-client",
     "version": "0.2.1",
-    "description": "Submit REST requests over HTTP",
+    "description": "Submit REST requests from PHP",
     "main": "gulpfile.js",
     "devDependencies": {
         "gulp": "~3.6.0",

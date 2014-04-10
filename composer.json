@@ -1,6 +1,6 @@
 {
     "name": "sylouuu/php-rest-client",
-    "description": "Submit REST requests over HTTP",
+    "description": "Submit REST requests from PHP",
     "type": "library",
     "keywords": [
         "rest",
