@@ -74,7 +74,7 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
         'url'   => 'http://api.domain.com/',
         'data'  => [
             'name'  => 'Syl',
-            'url'   => 'http://chez-syl.fr/'
+            'url'   => 'http://sylouuu.github.io/'
         ]
     ])->getJSON();
 ?>
@@ -88,7 +88,7 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
         'url'   => 'http://api.domain.com/',
         'data'  => [
             'name'  => 'Syl',
-            'url'   => 'http://chez-syl.fr/'
+            'url'   => 'http://sylouuu.github.io/'
         ]
     ])->getJSON();
 ?>
@@ -128,6 +128,10 @@ On project directory:
 * Type: `gulp` to launch unit tests
 
 ## Changelog
+
+2014-05-09 - **0.3.0**
+
+* added `ssl` option
 
 2014-04-06 - **0.2.1**
 
