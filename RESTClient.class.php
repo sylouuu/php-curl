@@ -195,6 +195,15 @@
             }
 
             /**
+            * SSL
+            */
+            if(isset($options['ssl'])) {
+                curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, true);
+                curl_setopt($handle, CURLOPT_SSL_VERIFYHOST, 2);
+                curl_setopt($handle, CURLOPT_CAINFO, getcwd() . $options['ssl']);
+            }
+
+            /**
             * Result
             */
             $json = curl_exec($handle);

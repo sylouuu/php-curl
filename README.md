@@ -104,6 +104,21 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
 ?>
 ```
 
+### SSL
+
+If you need to authenticate requests by a certificate, use the `ssl` option:
+
+```php
+<?php
+    $request = $rest_client->get([
+        'url'   => 'http://api.domain.com/',
+        'ssl'   => '/relative/path/to/certificate/file'
+    ]);
+?>
+```
+
+Available for `get`, `post`, `put` and `delete`.
+
 ## Tests
 
 On project directory:
