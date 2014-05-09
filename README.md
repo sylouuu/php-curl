@@ -1,4 +1,4 @@
-# PHP REST Client [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.svg)](https://travis-ci.org/sylouuu/php-rest-client) [![Latest Stable Version](https://poser.pugx.org/sylouuu/php-rest-client/v/stable.png)](https://packagist.org/packages/sylouuu/php-rest-client) [![devDependency Status](https://david-dm.org/sylouuu/php-rest-client/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-rest-client#info=devDependencies) [![License](https://poser.pugx.org/sylouuu/php-rest-client/license.png)](https://packagist.org/packages/sylouuu/php-rest-client)
+# PHP REST Client [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.svg)](https://travis-ci.org/sylouuu/php-rest-client) [![Latest Stable Version](https://poser.pugx.org/sylouuu/php-rest-client/v/stable.svg)](https://packagist.org/packages/sylouuu/php-rest-client) [![devDependency Status](https://david-dm.org/sylouuu/php-rest-client/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-rest-client#info=devDependencies) [![License](https://poser.pugx.org/sylouuu/php-rest-client/license.png)](https://packagist.org/packages/sylouuu/php-rest-client)
 
 ## Requirements
 
