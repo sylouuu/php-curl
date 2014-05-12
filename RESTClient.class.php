@@ -1,5 +1,7 @@
 <?php
 
+    namespace sylouuu;
+
     /**
     * REST Client
     *
@@ -117,19 +119,8 @@
                 */
                 $options['data'] = http_build_query($options['data'], '', '&');
 
-                /**
-                * Opening PHP memory
-                */
-                $memory = fopen('php://temp', 'rw+');
-                fwrite($memory, $options['data']);
-                rewind($memory);
-
-                /**
-                * Simulating file upload
-                */
-                curl_setopt($handle, CURLOPT_INFILE, $memory);
-                curl_setopt($handle, CURLOPT_INFILESIZE, strlen($options['data']));
-                curl_setopt($handle, CURLOPT_PUT, true);
+                curl_setopt($handle, CURLOPT_CUSTOMREQUEST, 'PUT');
+                curl_setopt($handle, CURLOPT_POSTFIELDS, $options['data']);
             } else {
                 throw new InvalidArgumentException('No data provided for that PUT request');
             }
