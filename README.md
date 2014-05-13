@@ -46,7 +46,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
     ]);
 
     // Get response
-    $json = $request->getResponse();
+    $response = $request->getResponse();
 
     // You have access to the HTTP status code
     $status = $request->getStatus();
@@ -55,7 +55,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
     $header = $request->getHeader();
 
     // You can also pass your headers
-    $json = $rest_client->get([
+    $response = $rest_client->get([
         'url'       => 'http://api.domain.com/',
         'headers'   => [
             'Foo: bar'
@@ -68,7 +68,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ```php
 <?php
-    $json = $rest_client->post([
+    $response = $rest_client->post([
         'url'   => 'http://api.domain.com/',
         'data'  => [
             'name'  => 'Syl',
@@ -82,7 +82,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ```php
 <?php
-    $json = $rest_client->put([
+    $response = $rest_client->put([
         'url'   => 'http://api.domain.com/',
         'data'  => [
             'name'  => 'Syl',
@@ -96,7 +96,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ```php
 <?php
-    $json = $rest_client->delete([
+    $response = $rest_client->delete([
         'url'   => 'http://api.domain.com/'
     ])->getResponse();
 ?>
@@ -106,7 +106,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ```php
 <?php
-    $json = $rest_client->head([
+    $response = $rest_client->head([
         'url'   => 'http://api.domain.com/'
     ])->getResponse();
 ?>
@@ -116,7 +116,7 @@ The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ```php
 <?php
-    $json = $rest_client->options([
+    $response = $rest_client->options([
         'url'   => 'http://api.domain.com/'
     ])->getResponse();
 ?>
@@ -140,8 +140,7 @@ If you need to authenticate requests by a certificate, use the `ssl` option:
 On project directory:
 
 * `composer install` to retrieve `phpunit`
-* `npm install` to retrieve `gulp` and `gulp-phpunit`
-* Type: `gulp` to launch unit tests
+* Type: `phpunit` to run tests
 
 ## Changelog
 
