@@ -144,7 +144,7 @@ On project directory:
 
 ## Changelog
 
-2014-05-13 - **0.4.0**
+2014-05-13 - **0.4.0** (BC break)
 
 * renamed `RESTClient.class.php` to `RESTClient.php`
 * renamed `RESTClient.class.php` to `RESTClient.php`
