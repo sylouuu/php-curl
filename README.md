@@ -12,30 +12,30 @@
 ```js
 {
     "require": {
-        "sylouuu/php-rest-client": "0.2.*"
+        "sylouuu/php-rest-client": "0.4.*"
     }
 }
 ```
 
-Include `RESTClient`: `require_once 'vendor/autoload.php';`
-
-### Manually
-
-[Download](https://github.com/sylouuu/php-rest-client/releases) the latest release and include `RESTClient`: `require_once 'path/to/RESTClient.class.php';`
+```php
+<?php
+    require_once 'vendor/sylouuu/php-rest-client/src/RESTClient.php';
+?>
+```
 
 ## Usage
 
 ```php
 <?php
-    $rest_client = new RESTClient();
+    $rest_client = new \sylouuu\RESTClient();
 ?>
 ```
 
-`GET`, `POST`, `PUT` and `DELETE` methods are available. For each, you have to specify the `url` option.
+`HEAD`, `OPTIONS`, `GET`, `POST`, `PUT`, `PATCH` and `DELETE` methods are available. For each, you have to specify the `url` option.
 
 You can specify additional headers with the `headers` option, see examples below.
 
-The `data` option is mandatory for  `POST` and `PUT` requests.
+The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
 
 ### GET
 
@@ -45,19 +45,22 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
         'url' => 'http://api.domain.com/'
     ]);
 
-    // Get JSON result
-    $json = $request->getJSON();
+    // Get response
+    $json = $request->getResponse();
 
     // You have access to the HTTP status code
     $status = $request->getStatus();
 
-    // With header
+    // You have access to the HTTP header
+    $header = $request->getHeader();
+
+    // You can also pass your headers
     $json = $rest_client->get([
         'url'       => 'http://api.domain.com/',
         'headers'   => [
             'Foo: bar'
         ]
-    ])->getJSON();
+    ])->getResponse();
 ?>
 ```
 
@@ -71,7 +74,7 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
             'name'  => 'Syl',
             'url'   => 'http://sylouuu.github.io/'
         ]
-    ])->getJSON();
+    ])->getResponse();
 ?>
 ```
 
@@ -85,7 +88,7 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
             'name'  => 'Syl',
             'url'   => 'http://sylouuu.github.io/'
         ]
-    ])->getJSON();
+    ])->getResponse();
 ?>
 ```
 
@@ -95,7 +98,27 @@ The `data` option is mandatory for  `POST` and `PUT` requests.
 <?php
     $json = $rest_client->delete([
         'url'   => 'http://api.domain.com/'
-    ])->getJSON();
+    ])->getResponse();
+?>
+```
+
+### HEAD
+
+```php
+<?php
+    $json = $rest_client->head([
+        'url'   => 'http://api.domain.com/'
+    ])->getResponse();
+?>
+```
+
+### OPTIONS
+
+```php
+<?php
+    $json = $rest_client->options([
+        'url'   => 'http://api.domain.com/'
+    ])->getResponse();
 ?>
 ```
 
@@ -112,8 +135,6 @@ If you need to authenticate requests by a certificate, use the `ssl` option:
 ?>
 ```
 
-Available for `get`, `post`, `put` and `delete`.
-
 ## Tests
 
 On project directory:
@@ -123,6 +144,19 @@ On project directory:
 * Type: `gulp` to launch unit tests
 
 ## Changelog
+
+2014-05-13 - **0.4.0**
+
+* renamed `RESTClient.class.php` to `RESTClient.php`
+* renamed `RESTClient.class.php` to `RESTClient.php`
+* moved `RESTClient.php` to `/src`
+* moved `RESTClientTest.php` to `/tests`
+* added `HEAD`, `OPTIONS` and `PATCH` support
+* added `getHeader` method
+* renamed `getJSON` to `getResponse`
+* removed JSON validation
+* added `sylouuu` namespace
+* removed `gulp`
 
 2014-05-09 - **0.3.0**
 

@@ -2,7 +2,7 @@
 <phpunit colors="true">
     <testsuites>
         <testsuite name="RESTClient Test Suite">
-            <file>./RESTClientTest.php</file>
+            <file>./tests/RESTClientTest.php</file>
         </testsuite>
     </testsuites>
 </phpunit>
