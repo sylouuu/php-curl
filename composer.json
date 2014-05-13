@@ -1,6 +1,6 @@
 {
     "name": "sylouuu/php-rest-client",
-    "description": "Submit REST requests from PHP",
+    "description": "Lightweight PHP cURL wrapper",
     "type": "library",
     "keywords": [
         "rest",
