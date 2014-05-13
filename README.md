@@ -147,7 +147,6 @@ On project directory:
 2014-05-13 - **0.4.0** (BC break)
 
 * renamed `RESTClient.class.php` to `RESTClient.php`
-* renamed `RESTClient.class.php` to `RESTClient.php`
 * moved `RESTClient.php` to `/src`
 * moved `RESTClientTest.php` to `/tests`
 * added `HEAD`, `OPTIONS` and `PATCH` support
