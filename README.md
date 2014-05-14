@@ -1,4 +1,4 @@
-# PHP REST Client [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.svg)](https://travis-ci.org/sylouuu/php-rest-client) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-rest-client.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-rest-client) [![devDependency Status](https://david-dm.org/sylouuu/php-rest-client/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-rest-client#info=devDependencies)
+# PHP REST Client [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.svg)](https://travis-ci.org/sylouuu/php-rest-client) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-rest-client.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-rest-client) 
 
 ## Requirements
 
