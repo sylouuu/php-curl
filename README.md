@@ -1,4 +1,4 @@
-# PHP cURL [![Build Status](https://travis-ci.org/sylouuu/php-curl.svg)](https://travis-ci.org/sylouuu/php-curl) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-curl.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-curl) [![devDependency Status](https://david-dm.org/sylouuu/php-curl/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-curl#info=devDependencies)
+# PHP cURL [![Build Status](https://travis-ci.org/sylouuu/php-curl.svg)](https://travis-ci.org/sylouuu/php-curl) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-curl.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-curl)
 
 ## Requirements
 
@@ -18,69 +18,72 @@
 ```
 
 ```php
-    require_once './vendor/autoload.php.php';
+require_once './vendor/autoload.php';
 ```
 
 ## Usage
 
 ```php
-    // Create a request
-    $request = new \sylouuu\Curl\Get(['url' => 'http://domain.com']);
+// Create a request
+$request = new \sylouuu\Curl\Get(['url' => 'http://domain.com']);
 
-    // Send this request
-    $request->send();
+// Send this request
+$request->send();
 
-    // Show the response
-    echo $request->getResponse();
+// Show the response
+echo $request->getResponse();
 ```
 
 ### Constructor options
 
 ```php
-    [
-        'url' => 'http://domain.com',   // The resource to call (mandatory)
-        'data' => [                     // Data to send, available for `Post` `Put` and `Patch` (mandatory)
-            'foo' => 'bar'
-        ],
-        'headers' => [                  // Additional headers (optional)
-            'Authorization: foobar'  
-        ],
-        'ssl' => '/path/to/cacert.ext', // Use it for SSL (optional)
-        'autoclose' => true/false       // Is the request must be automatically closed (optional)
-    ]
+[
+    'url' => 'http://domain.com',   // The resource to call (mandatory)
+    'data' => [                     // Data to send, available for `Post` `Put` and `Patch` (mandatory)
+        'foo' => 'bar'
+    ],
+    'headers' => [                  // Additional headers (optional)
+        'Authorization: foobar'  
+    ],
+    'ssl' => '/path/to/cacert.ext', // Use it for SSL (optional)
+    'autoclose' => true/false       // Is the request must be automatically closed (optional)
+]
 ```
 
 ### Public methods
 
 ```php
-    // Send a request
-    $request->send();
+// Send a request
+$request->send();
 
-    // HTTP status code
-    $request->getStatus();
+// HTTP status code
+$request->getStatus();
 
-    // HTTP header
-    $request->getHeader();
+// HTTP header
+$request->getHeader();
 
-    // HTTP body response
-    $request->getResponse();
+// HTTP body response
+$request->getResponse();
 
-    // Used cURL options
-    $request->getCurlOptions();
+// Used cURL options
+$request->getCurlOptions();
 
-    //----------------------------------------
+// Set a cURL option
+$request->setCurlOptions(CURLOPT_*);
 
-    // Set `autoclose` option to `false`
-    $request = new \sylouuu\Curl\Get([
-        'url' => 'http://domain.com'
-        'autoclose' => false
-    ]);
+//----------------------------------------
 
-    // Now you can retrieve a cURL info
-    $request->getCurlInfo(CURLINFO_SOMETHING);
+// Set `autoclose` option to `false`
+$request = new \sylouuu\Curl\Get([
+    'url' => 'http://domain.com'
+    'autoclose' => false
+]);
 
-    // Manually close the handle
-    $request->close();
+// Now you can retrieve a cURL info
+$request->getCurlInfo(CURLINFO_SOMETHING);
+
+// Manually close the handle
+$request->close();
 ```
 
 As `Get`, here are the HTTP supported verbs: `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
