@@ -18,122 +18,72 @@
 ```
 
 ```php
-<?php
-    require_once 'vendor/sylouuu/php-rest-client/src/RESTClient.php';
-?>
+    require_once './vendor/autoload.php.php';
 ```
 
 ## Usage
 
 ```php
-<?php
-    $rest_client = new \sylouuu\RESTClient();
-?>
+    // Create a request
+    $request = new \sylouuu\Curl\Get(['url' => 'http://domain.com']);
+
+    // Send this request
+    $request->send();
+
+    // Show the response
+    echo $request->getResponse();
 ```
 
-`HEAD`, `OPTIONS`, `GET`, `POST`, `PUT`, `PATCH` and `DELETE` methods are available. For each, you have to specify the `url` option.
-
-You can specify additional headers with the `headers` option, see examples below.
-
-The `data` option is mandatory for  `POST`, `PUT` and `PATCH` requests.
-
-### GET
+### Constructor options
 
 ```php
-<?php
-    $request = $rest_client->get([
-        'url' => 'http://api.domain.com/'
+    [
+        'url' => 'http://domain.com',   // The resource to call (mandatory)
+        'data' => [                     // Data to send, available for `Post` `Put` and `Patch` (mandatory)
+            'foo' => 'bar'
+        ],
+        'headers' => [                  // Additional headers (optional)
+            'Authorization: foobar'  
+        ],
+        'ssl' => '/path/to/cacert.ext', // Use it for SSL (optional)
+        'autoclose' => true/false       // Is the request must be automatically closed (optional)
+    ]
+```
+
+### Public methods
+
+```php
+    // Send a request
+    $request->send();
+
+    // HTTP status code
+    $request->getStatus();
+
+    // HTTP header
+    $request->getHeader();
+
+    // HTTP body response
+    $request->getResponse();
+
+    // Used cURL options
+    $request->getCurlOptions();
+
+    //----------------------------------------
+
+    // Set `autoclose` option to `false`
+    $request = new \sylouuu\Curl\Get([
+        'url' => 'http://domain.com'
+        'autoclose' => false
     ]);
 
-    // Get response
-    $response = $request->getResponse();
+    // Now you can retrieve a cURL info
+    $request->getCurlInfo(CURLINFO_SOMETHING);
 
-    // You have access to the HTTP status code
-    $status = $request->getStatus();
-
-    // You have access to the HTTP header
-    $header = $request->getHeader();
-
-    // You can also pass your headers
-    $response = $rest_client->get([
-        'url'       => 'http://api.domain.com/',
-        'headers'   => [
-            'Foo: bar'
-        ]
-    ])->getResponse();
-?>
+    // Manually close the handle
+    $request->close();
 ```
 
-### POST
-
-```php
-<?php
-    $response = $rest_client->post([
-        'url'   => 'http://api.domain.com/',
-        'data'  => [
-            'name'  => 'Syl',
-            'url'   => 'http://sylouuu.github.io/'
-        ]
-    ])->getResponse();
-?>
-```
-
-### PUT
-
-```php
-<?php
-    $response = $rest_client->put([
-        'url'   => 'http://api.domain.com/',
-        'data'  => [
-            'name'  => 'Syl',
-            'url'   => 'http://sylouuu.github.io/'
-        ]
-    ])->getResponse();
-?>
-```
-
-### DELETE
-
-```php
-<?php
-    $response = $rest_client->delete([
-        'url'   => 'http://api.domain.com/'
-    ])->getResponse();
-?>
-```
-
-### HEAD
-
-```php
-<?php
-    $response = $rest_client->head([
-        'url'   => 'http://api.domain.com/'
-    ])->getResponse();
-?>
-```
-
-### OPTIONS
-
-```php
-<?php
-    $response = $rest_client->options([
-        'url'   => 'http://api.domain.com/'
-    ])->getResponse();
-?>
-```
-
-### SSL
-
-If you need to authenticate requests by a certificate, use the `ssl` option:
-
-```php
-<?php
-    $request = $rest_client->get([
-        'url'   => 'http://api.domain.com/',
-        'ssl'   => '/relative/path/to/certificate/file'
-    ]);
-?>
-```
+As `Get`, here are the HTTP supported verbs: `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
 
 ## Tests
 
@@ -143,6 +93,15 @@ On project directory:
 * Type: `phpunit` to run tests
 
 ## Changelog
+
+2014-05-20 - **0.5.0** (BC break)
+
+* renamed repository from `php-rest-client` to `php-curl`
+* refactored all code
+* added `autoclose` option
+* added the way to get/set cURL options
+* added the way to get cURL info
+* sources are now psr-2 compliant
 
 2014-05-13 - **0.4.0** (BC break)
 
