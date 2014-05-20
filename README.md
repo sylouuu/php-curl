@@ -1,4 +1,4 @@
-# PHP REST Client [![Build Status](https://travis-ci.org/sylouuu/php-rest-client.svg)](https://travis-ci.org/sylouuu/php-rest-client) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-rest-client.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-rest-client) 
+# PHP cURL [![Build Status](https://travis-ci.org/sylouuu/php-curl.svg)](https://travis-ci.org/sylouuu/php-curl) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-curl.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-curl) [![devDependency Status](https://david-dm.org/sylouuu/php-curl/dev-status.svg?theme=shields.io)](https://david-dm.org/sylouuu/php-curl#info=devDependencies)
 
 ## Requirements
 
@@ -12,7 +12,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-rest-client": "0.4.*"
+        "sylouuu/php-curl": "0.5.*"
     }
 }
 ```

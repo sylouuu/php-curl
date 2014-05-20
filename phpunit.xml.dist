@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
+<phpunit colors="true" bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="RESTClient Test Suite">
-            <file>./tests/RESTClientTest.php</file>
+        <testsuite name="PHP cURL Test Suite">
+            <directory suffix=".php">./tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
