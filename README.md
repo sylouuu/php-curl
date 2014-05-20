@@ -69,7 +69,7 @@ $request->getResponse();
 $request->getCurlOptions();
 
 // Set a cURL option
-$request->setCurlOptions(CURLOPT_*);
+$request->setCurlOptions(CURLOPT_SOMETHING);
 
 //----------------------------------------
 
