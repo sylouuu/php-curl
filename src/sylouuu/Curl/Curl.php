@@ -153,7 +153,8 @@
         /**
         * Closes the handle
         */
-        public function close() {
+        public function close()
+        {
             curl_close($this->ch);
         }
 
