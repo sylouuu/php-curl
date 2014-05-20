@@ -46,7 +46,7 @@ echo $request->getResponse();
         'Authorization: foobar'  
     ],
     'ssl' => '/path/to/cacert.ext', // Use it for SSL (optional)
-    'autoclose' => true/false       // Is the request must be automatically closed (optional)
+    'autoclose' => true             // Is the request must be automatically closed (optional)
 ]
 ```
 
