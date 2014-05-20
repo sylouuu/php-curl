@@ -3,7 +3,7 @@
     "description": "Lightweight PHP cURL wrapper",
     "type": "library",
     "keywords": ["curl", "http"],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "homepage": "https://github.com/sylouuu/php-curl",
     "license": "MIT",
     "support": {
