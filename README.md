@@ -12,7 +12,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-curl": "0.5.*"
+        "sylouuu/php-curl": "0.6.*"
     }
 }
 ```
@@ -25,7 +25,7 @@ require_once './vendor/autoload.php';
 
 ```php
 // Create a request
-$request = new \sylouuu\Curl\Get(['url' => 'http://domain.com']);
+$request = new \sylouuu\Curl\Get('http://domain.com');
 
 // Send this request
 $request->send();
@@ -38,7 +38,6 @@ echo $request->getResponse();
 
 ```php
 [
-    'url' => 'http://domain.com',   // The resource to call (mandatory)
     'data' => [                     // Data to send, available for `Post` `Put` and `Patch` (mandatory)
         'foo' => 'bar'
     ],
@@ -74,8 +73,7 @@ $request->setCurlOption(CURLOPT_SOMETHING);
 //----------------------------------------
 
 // Set `autoclose` option to `false`
-$request = new \sylouuu\Curl\Get([
-    'url' => 'http://domain.com'
+$request = new \sylouuu\Curl\Get('http://domain.com', [
     'autoclose' => false
 ]);
 
@@ -96,6 +94,10 @@ On project directory:
 * Type: `phpunit` to run tests
 
 ## Changelog
+
+2014-05-22 - **0.6.0** (BC break)
+
+* moved `url` option to the first constructor parameter
 
 2014-05-20 - **0.5.0** (BC break)
 

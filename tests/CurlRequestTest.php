@@ -7,7 +7,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.5.0
+    * @version 0.6.0
     * @license MIT
     */
     class CurlRequestTest extends \PHPUnit_Framework_TestCase
@@ -36,9 +36,7 @@
         */
         public function testExceptionPostRequestWithoutData()
         {
-            $request = new \sylouuu\Curl\Post([
-                'url' => $this->endpoint
-            ]);
+            $request = new \sylouuu\Curl\Post($this->endpoint);
         }
 
         /**
@@ -49,9 +47,7 @@
         */
         public function testExceptionPutRequestWithoutData()
         {
-            $request = new \sylouuu\Curl\Put([
-                'url' => $this->endpoint
-            ]);
+            $request = new \sylouuu\Curl\Put($this->endpoint);
         }
 
         /**
@@ -62,9 +58,7 @@
         */
         public function testExceptionPatchRequestWithoutData()
         {
-            $request = new \sylouuu\Curl\Patch([
-                'url' => $this->endpoint
-            ]);
+            $request = new \sylouuu\Curl\Patch($this->endpoint);
         }
 
         // Success
@@ -75,9 +69,7 @@
         */
         public function testHeadRequest()
         {
-            $request = new \sylouuu\Curl\Head([
-                'url' => $this->endpoint
-            ]);
+            $request = new \sylouuu\Curl\Head($this->endpoint);
 
             $request->send();
 
@@ -90,9 +82,7 @@
         */
         public function testOptionsRequest()
         {
-            $request = new \sylouuu\Curl\Options([
-                'url' => $this->endpoint .'user'
-            ]);
+            $request = new \sylouuu\Curl\Options($this->endpoint .'user');
 
             $request->send();
 
@@ -105,9 +95,7 @@
         */
         public function testGetRequest()
         {
-            $request = new \sylouuu\Curl\Get([
-                'url' => $this->endpoint .'ip'
-            ]);
+            $request = new \sylouuu\Curl\Get($this->endpoint .'ip');
 
             $request->send();
 
@@ -120,8 +108,7 @@
         */
         public function testGetRequestWithHeader()
         {
-            $request = new \sylouuu\Curl\Get([
-                'url'       => $this->endpoint .'ip',
+            $request = new \sylouuu\Curl\Get($this->endpoint .'ip', [
                 'headers'   => [
                     'Authorization: foobar'
                 ]
@@ -138,8 +125,7 @@
         */
         public function testPostRequest()
         {
-            $request = new \sylouuu\Curl\Post([
-                'url' => $this->endpoint .'user',
+            $request = new \sylouuu\Curl\Post($this->endpoint .'user', [
                 'data' => [
                     'name' => 'foo',
                     'email' => 'foo@domain.com'
@@ -156,8 +142,7 @@
         */
         public function testPutRequest()
         {
-            $request = new \sylouuu\Curl\Put([
-                'url' => $this->endpoint .'user/1',
+            $request = new \sylouuu\Curl\Put($this->endpoint .'user/1', [
                 'data' => [
                     'name' => 'foo'
                 ]
@@ -173,8 +158,7 @@
         */
         public function testPatchRequest()
         {
-            $request = new \sylouuu\Curl\Patch([
-                'url' => $this->endpoint .'user/1',
+            $request = new \sylouuu\Curl\Patch($this->endpoint .'user/1', [
                 'data' => [
                     'name' => 'foo'
                 ]
@@ -190,9 +174,7 @@
         */
         public function testDeleteRequest()
         {
-            $request = new \sylouuu\Curl\Delete([
-                'url' => $this->endpoint .'user/1'
-            ]);
+            $request = new \sylouuu\Curl\Delete($this->endpoint .'user/1');
 
             $request->send();
 

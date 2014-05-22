@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.5.0
+    * @version 0.6.0
     * @license MIT
     */
     abstract class Curl
@@ -29,12 +29,14 @@
         *
         * @param array $options
         */
-        public function __construct($options)
+        public function __construct($url, $options = null)
         {
-            $this->options = $options;
+            if(isset($url)) {
+                $this->options = $options;
 
-            // Init cURL
-            $this->ch = curl_init($options['url']);
+                // Init cURL
+                $this->ch = curl_init($url);
+            }
         }
 
         /**

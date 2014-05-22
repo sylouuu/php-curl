@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.5.0
+    * @version 0.6.0
     * @license MIT
     */
     class Post extends Curl
@@ -16,9 +16,9 @@
         *
         * @param array $options
         */
-        public function __construct($options)
+        public function __construct($url, $options = null)
         {
-            parent::__construct($options);
+            parent::__construct($url, $options);
 
             $this->prepare();
         }
