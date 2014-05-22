@@ -24,6 +24,15 @@ require_once './vendor/autoload.php';
 ## Usage
 
 ```php
+// Template
+$request = new \sylouuu\Curl\Method( string $url [, array $options ] );
+```
+
+Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
+
+Basic case:
+
+```php
 // Create a request
 $request = new \sylouuu\Curl\Get('http://domain.com');
 
@@ -83,8 +92,6 @@ $request->getCurlInfo(CURLINFO_SOMETHING);
 // Manually close the handle
 $request->close();
 ```
-
-As `Get`, here are the HTTP supported verbs: `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
 
 ## Tests
 
