@@ -51,7 +51,7 @@ echo $request->getResponse();
         'foo' => 'bar'
     ],
     'headers' => [                  // Additional headers (optional)
-        'Authorization: foobar'  
+        'Authorization: foobar'
     ],
     'ssl' => '/path/to/cacert.ext', // Use it for SSL (optional)
     'autoclose' => true             // Is the request must be automatically closed (optional)
@@ -77,7 +77,7 @@ $request->getResponse();
 $request->getCurlOptions();
 
 // Set a cURL option
-$request->setCurlOption(CURLOPT_SOMETHING);
+$request->setCurlOption(CURLOPT_SOMETHING, $value);
 
 //----------------------------------------
 
