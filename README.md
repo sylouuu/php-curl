@@ -79,12 +79,15 @@ $request->getCurlOptions();
 // Set a cURL option
 $request->setCurlOption(CURLOPT_SOMETHING, $value);
 
-//----------------------------------------
+//---------------- Example ------------------
 
 // Set `autoclose` option to `false`
 $request = new \sylouuu\Curl\Get('http://domain.com', [
     'autoclose' => false
 ]);
+
+// Send this request
+$request->send();
 
 // Now you can retrieve a cURL info
 $request->getCurlInfo(CURLINFO_SOMETHING);
