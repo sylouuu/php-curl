@@ -79,8 +79,28 @@ $request->getCurlOptions();
 // Set a cURL option
 $request->setCurlOption(CURLOPT_SOMETHING, $value);
 
-//---------------- Example ------------------
+// Manually close the handle (necessary when `autoclose => false` is used)
+$request->close();
+```
 
+### Examples
+
+Basic:
+
+```php
+// Standard GET request
+$request = new \sylouuu\Curl\Get('http://domain.com');
+
+// Send this request
+$request->send();
+
+echo $request->getResponse(); // body response
+echo $request->getStatus(); // HTTP status code
+```
+
+Manual:
+
+```php
 // Set `autoclose` option to `false`
 $request = new \sylouuu\Curl\Get('http://domain.com', [
     'autoclose' => false
@@ -89,8 +109,10 @@ $request = new \sylouuu\Curl\Get('http://domain.com', [
 // Send this request
 $request->send();
 
-// Now you can retrieve a cURL info
+// Now you can retrieve a cURL info as the handle is still open
 $request->getCurlInfo(CURLINFO_SOMETHING);
+
+echo $request->getResponse();
 
 // Manually close the handle
 $request->close();
