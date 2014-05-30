@@ -7,7 +7,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.0
+    * @version 0.6.1
     * @license MIT
     */
     class CurlRequestTest extends \PHPUnit_Framework_TestCase
@@ -24,45 +24,6 @@
             // Setting endpoint URL
             $this->endpoint = 'http://chez-syl.fr/yaapi/api/';
         }
-
-        // Exceptions
-        // ------------------------------------------------------------------------------------------------------
-
-        /**
-        * Standard POST request without data
-        *
-        * @expectedException \InvalidArgumentException
-        * @expectedExceptionMessage No data provided for that POST request
-        */
-        public function testExceptionPostRequestWithoutData()
-        {
-            $request = new \sylouuu\Curl\Post($this->endpoint);
-        }
-
-        /**
-        * Standard PUT request without data
-        *
-        * @expectedException \InvalidArgumentException
-        * @expectedExceptionMessage No data provided for that PUT request
-        */
-        public function testExceptionPutRequestWithoutData()
-        {
-            $request = new \sylouuu\Curl\Put($this->endpoint);
-        }
-
-        /**
-        * Standard PATCH request without data
-        *
-        * @expectedException \InvalidArgumentException
-        * @expectedExceptionMessage No data provided for that PATCH request
-        */
-        public function testExceptionPatchRequestWithoutData()
-        {
-            $request = new \sylouuu\Curl\Patch($this->endpoint);
-        }
-
-        // Success
-        // ------------------------------------------------------------------------------------------------------
 
         /**
         * Standard OPTIONS request

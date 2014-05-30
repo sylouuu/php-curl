@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.0
+    * @version 0.6.1
     * @license MIT
     */
     class Post extends Curl
@@ -28,12 +28,12 @@
         */
         public function prepare()
         {
+            // Option
+            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'POST');
+
             if(isset($this->options['data'])) {
-                // Options
+                // Data
                 $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);
-                $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'POST');
-            } else {
-                throw new \InvalidArgumentException('No data provided for that POST request');
             }
         }
     }

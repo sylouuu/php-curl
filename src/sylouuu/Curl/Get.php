@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.0
+    * @version 0.6.1
     * @license MIT
     */
     class Get extends Curl

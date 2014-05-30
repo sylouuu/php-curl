@@ -47,7 +47,7 @@ echo $request->getResponse();
 
 ```php
 [
-    'data' => [                     // Data to send, available for `Post` `Put` and `Patch` (mandatory)
+    'data' => [                     // Data to send, available for `Post` `Put` and `Patch`
         'foo' => 'bar'
     ],
     'headers' => [                  // Additional headers (optional)
@@ -126,6 +126,10 @@ On project directory:
 * Type: `phpunit` to run tests
 
 ## Changelog
+
+2014-05-30 - **0.6.1**
+
+* removed exception when `data` option is not specified for `Post` `Put` and `Patch`
 
 2014-05-22 - **0.6.0** (BC break)
 

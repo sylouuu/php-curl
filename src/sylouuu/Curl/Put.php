@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.0
+    * @version 0.6.1
     * @license MIT
     */
     class Put extends Curl
@@ -28,15 +28,15 @@
         */
         public function prepare()
         {
+            // Option
+            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PUT');
+
             if(isset($this->options['data'])) {
                 // Converting array to an URL-encoded query string
                 $this->options['data'] = http_build_query($this->options['data'], '', '&');
 
-                // Options
-                $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PUT');
+                // Data
                 $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);
-            } else {
-                throw new \InvalidArgumentException('No data provided for that PUT request');
             }
         }
     }
