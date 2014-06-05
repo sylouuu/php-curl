@@ -24,8 +24,11 @@ require_once './vendor/autoload.php';
 ## Usage
 
 ```php
+// Namespace shortcut
+use sylouuu\Curl as Curl;
+
 // Template
-$request = new \sylouuu\Curl\Method( string $url [, array $options ] );
+$request = new Curl\Method( string $url [, array $options ] );
 ```
 
 Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
