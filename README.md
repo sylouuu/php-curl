@@ -50,14 +50,14 @@ echo $request->getResponse();
 
 ```php
 [
-    'data' => [                     // Data to send, available for `Post` `Put` and `Patch`
+    'data' => [                    // Data to send, available for `Post` `Put` and `Patch`
         'foo' => 'bar'
     ],
-    'headers' => [                  // Additional headers (optional)
+    'headers' => [                 // Additional headers (optional)
         'Authorization: foobar'
     ],
-    'ssl' => '/path/to/cacert.pem', // Use it for SSL (optional)
-    'autoclose' => true             // Is the request must be automatically closed (optional)
+    'ssl' => '/cacert.pem',        // Use it for SSL (optional)
+    'autoclose' => true            // Is the request must be automatically closed (optional)
 ]
 ```
 
