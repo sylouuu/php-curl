@@ -33,19 +33,6 @@ $request = new Curl\Method( string $url [, array $options ] );
 
 Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
 
-Basic case:
-
-```php
-// Create a request
-$request = new \sylouuu\Curl\Get('http://domain.com');
-
-// Send this request
-$request->send();
-
-// Show the response
-echo $request->getResponse();
-```
-
 ### Constructor options
 
 ```php
