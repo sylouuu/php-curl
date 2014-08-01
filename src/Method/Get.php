@@ -1,15 +1,15 @@
 <?php
-    namespace sylouuu\Curl;
+    namespace sylouuu\Curl\Method;
 
     /**
-    * Delete
+    * Get
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
-    class Delete extends Curl
+    class Get extends \sylouuu\Curl\Curl
     {
         /**
         * Constructor
@@ -26,9 +26,5 @@
         /**
         * Prepare the request
         */
-        public function prepare()
-        {
-            // Options
-            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'DELETE');
-        }
+        public function prepare() {}
     }

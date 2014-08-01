@@ -1,15 +1,15 @@
 <?php
-    namespace sylouuu\Curl;
+    namespace sylouuu\Curl\Method;
 
     /**
-    * Head
+    * Delete
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
-    class Head extends Curl
+    class Delete extends \sylouuu\Curl\Curl
     {
         /**
         * Constructor
@@ -29,7 +29,6 @@
         public function prepare()
         {
             // Options
-            $this->setCurlOption(CURLOPT_HEADER, true);
-            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'HEAD');
+            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'DELETE');
         }
     }

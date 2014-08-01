@@ -1,15 +1,15 @@
 <?php
-    namespace sylouuu\Curl;
+    namespace sylouuu\Curl\Method;
 
     /**
     * Put
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
-    class Put extends Curl
+    class Put extends \sylouuu\Curl\Curl
     {
         /**
         * Constructor

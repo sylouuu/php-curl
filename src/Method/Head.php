@@ -1,15 +1,15 @@
 <?php
-    namespace sylouuu\Curl;
+    namespace sylouuu\Curl\Method;
 
     /**
-    * Get
+    * Head
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
-    class Get extends Curl
+    class Head extends \sylouuu\Curl\Curl
     {
         /**
         * Constructor
@@ -26,5 +26,10 @@
         /**
         * Prepare the request
         */
-        public function prepare() {}
+        public function prepare()
+        {
+            // Options
+            $this->setCurlOption(CURLOPT_HEADER, true);
+            $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'HEAD');
+        }
     }

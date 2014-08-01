@@ -1,15 +1,15 @@
 <?php
-    namespace sylouuu\Curl;
+    namespace sylouuu\Curl\Method;
 
     /**
     * Patch
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
-    class Patch extends Curl
+    class Patch extends \sylouuu\Curl\Curl
     {
         /**
         * Constructor

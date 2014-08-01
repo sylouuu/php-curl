@@ -1,5 +1,7 @@
 <?php
 
+    use \sylouuu\Curl\Method as Curl;
+
     /**
     * Curl Request Tests
     *
@@ -7,7 +9,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
     class CurlRequestTest extends \PHPUnit_Framework_TestCase
@@ -30,7 +32,7 @@
         */
         public function testHeadRequest()
         {
-            $request = new \sylouuu\Curl\Head($this->endpoint);
+            $request = new Curl\Head($this->endpoint);
 
             $request->send();
 
@@ -43,7 +45,7 @@
         */
         public function testOptionsRequest()
         {
-            $request = new \sylouuu\Curl\Options($this->endpoint .'user');
+            $request = new Curl\Options($this->endpoint .'user');
 
             $request->send();
 
@@ -56,7 +58,7 @@
         */
         public function testGetRequest()
         {
-            $request = new \sylouuu\Curl\Get($this->endpoint .'ip');
+            $request = new Curl\Get($this->endpoint .'ip');
 
             $request->send();
 
@@ -69,7 +71,7 @@
         */
         public function testGetRequestWithHeader()
         {
-            $request = new \sylouuu\Curl\Get($this->endpoint .'ip', [
+            $request = new Curl\Get($this->endpoint .'ip', [
                 'headers'   => [
                     'Authorization: foobar'
                 ]
@@ -86,7 +88,7 @@
         */
         public function testPostRequest()
         {
-            $request = new \sylouuu\Curl\Post($this->endpoint .'user', [
+            $request = new Curl\Post($this->endpoint .'user', [
                 'data' => [
                     'name' => 'foo',
                     'email' => 'foo@domain.com'
@@ -103,7 +105,7 @@
         */
         public function testPutRequest()
         {
-            $request = new \sylouuu\Curl\Put($this->endpoint .'user/1', [
+            $request = new Curl\Put($this->endpoint .'user/1', [
                 'data' => [
                     'name' => 'foo'
                 ]
@@ -119,7 +121,7 @@
         */
         public function testPatchRequest()
         {
-            $request = new \sylouuu\Curl\Patch($this->endpoint .'user/1', [
+            $request = new Curl\Patch($this->endpoint .'user/1', [
                 'data' => [
                     'name' => 'foo'
                 ]
@@ -135,7 +137,7 @@
         */
         public function testDeleteRequest()
         {
-            $request = new \sylouuu\Curl\Delete($this->endpoint .'user/1');
+            $request = new Curl\Delete($this->endpoint .'user/1');
 
             $request->send();
 

@@ -12,7 +12,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-curl": "0.6.*"
+        "sylouuu/php-curl": "0.7.*"
     }
 }
 ```
@@ -25,10 +25,10 @@ require_once './vendor/autoload.php';
 
 ```php
 // Namespace shortcut
-use sylouuu\Curl as Curl;
+use sylouuu\Curl\Method as Curl;
 
 // Template
-$request = new Curl\Method( string $url [, array $options ] );
+$request = new Curl\<METHOD_NAME>( string $url [, array $options ] );
 ```
 
 Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
@@ -78,8 +78,11 @@ $request->close();
 Basic:
 
 ```php
+// Namespace shortcut
+use sylouuu\Curl\Method as Curl;
+
 // Standard GET request
-$request = new \sylouuu\Curl\Get('http://domain.com');
+$request = new Curl\Get('http://domain.com');
 
 // Send this request
 $request->send();
@@ -91,8 +94,11 @@ echo $request->getStatus(); // HTTP status code
 Manual:
 
 ```php
+// Namespace shortcut
+use sylouuu\Curl\Method as Curl;
+
 // Set `autoclose` option to `false`
-$request = new \sylouuu\Curl\Get('http://domain.com', [
+$request = new Curl\Get('http://domain.com', [
     'autoclose' => false
 ]);
 
@@ -116,6 +122,11 @@ On project directory:
 * Type: `phpunit` to run tests
 
 ## Changelog
+
+2014-08-01 - **0.7.0** (BC break)
+
+* moved from psr-0 autoload to psr-4
+* added Method directory, then methods are now in \sylouuu\Curl\Method\
 
 2014-05-30 - **0.6.1**
 

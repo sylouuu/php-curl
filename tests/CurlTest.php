@@ -1,5 +1,7 @@
 <?php
 
+    use \sylouuu\Curl\Method as Curl;
+
     /**
     * Curl Tests
     *
@@ -7,7 +9,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.6.1
+    * @version 0.7.0
     * @license MIT
     */
     class CurlTest extends \PHPUnit_Framework_TestCase
@@ -30,7 +32,7 @@
         */
         public function testOptionsGetter()
         {
-            $request = new \sylouuu\Curl\Post($this->endpoint .'user', [
+            $request = new Curl\Post($this->endpoint .'user', [
                 'data' => [
                     'name' => 'foo',
                     'email' => 'foo@domain.com'
@@ -59,7 +61,7 @@
         */
         public function testOptionsSetter()
         {
-            $request = new \sylouuu\Curl\Get($this->endpoint .'user');
+            $request = new Curl\Get($this->endpoint .'user');
 
             $options = $request->getCurlOptions();
 
@@ -77,7 +79,7 @@
         */
         public function testCurlInfoGetter()
         {
-            $request = new \sylouuu\Curl\Get($this->endpoint .'user', [
+            $request = new Curl\Get($this->endpoint .'user', [
                 'autoclose' => false
             ]);
 
