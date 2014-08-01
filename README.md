@@ -126,7 +126,7 @@ On project directory:
 2014-08-01 - **0.7.0** (BC break)
 
 * moved from psr-0 autoload to psr-4
-* added Method directory, then methods are now in \sylouuu\Curl\Method\
+* added `Method` directory, then methods are now in `\sylouuu\Curl\Method\`
 
 2014-05-30 - **0.6.1**
 
