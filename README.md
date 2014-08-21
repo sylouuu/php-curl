@@ -1,4 +1,7 @@
-# PHP cURL [![Build Status](https://travis-ci.org/sylouuu/php-curl.svg)](https://travis-ci.org/sylouuu/php-curl) [![GitHub version](https://badge.fury.io/gh/sylouuu%2Fphp-curl.svg)](http://badge.fury.io/gh/sylouuu%2Fphp-curl)
+# PHP cURL
+
+[![Build Status](http://img.shields.io/travis/sylouuu/php-curl.svg?style=flat)](https://travis-ci.org/sylouuu/php-curl)
+[![Version](http://img.shields.io/packagist/v/sylouuu/php-curl.svg?style=flat)](https://packagist.org/packages/sylouuu/php-curl)
 
 ## Requirements
 
