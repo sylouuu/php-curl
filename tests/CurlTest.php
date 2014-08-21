@@ -24,7 +24,7 @@
         public function setUp()
         {
             // Setting endpoint URL
-            $this->endpoint = 'http://chez-syl.fr/yaapi/api/';
+            $this->endpoint = 'http://headers.jsontest.com/';
         }
 
         /**
@@ -32,7 +32,7 @@
         */
         public function testOptionsGetter()
         {
-            $request = new Curl\Post($this->endpoint .'user', [
+            $request = new Curl\Post($this->endpoint, [
                 'data' => [
                     'name' => 'foo',
                     'email' => 'foo@domain.com'
@@ -61,7 +61,7 @@
         */
         public function testOptionsSetter()
         {
-            $request = new Curl\Get($this->endpoint .'user');
+            $request = new Curl\Get($this->endpoint);
 
             $options = $request->getCurlOptions();
 
@@ -79,7 +79,7 @@
         */
         public function testCurlInfoGetter()
         {
-            $request = new Curl\Get($this->endpoint .'user', [
+            $request = new Curl\Get($this->endpoint, [
                 'autoclose' => false
             ]);
 
