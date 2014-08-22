@@ -36,11 +36,11 @@ $request = new Curl\<METHOD_NAME>( string $url [, array $options ] );
 
 Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
 
-### Constructor options
+### Constructor `$options`
 
 ```php
 [
-    'data' => [                    // Data to send, available for `Post` `Put` and `Patch`
+    'data' => [                    // Data to send, available for `Post`, `Put` and `Patch`
         'foo' => 'bar'
     ],
     'headers' => [                 // Additional headers (optional)
