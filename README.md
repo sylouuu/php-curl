@@ -122,7 +122,7 @@ $request->close();
 On project directory:
 
 * `composer install` to retrieve `phpunit`
-* Type: `phpunit` to run tests
+* `phpunit` to run tests
 
 ## Changelog
 
