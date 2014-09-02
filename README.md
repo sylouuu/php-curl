@@ -2,6 +2,7 @@
 
 [![Build Status](http://img.shields.io/travis/sylouuu/php-curl.svg?style=flat)](https://travis-ci.org/sylouuu/php-curl)
 [![Version](http://img.shields.io/packagist/v/sylouuu/php-curl.svg?style=flat)](https://packagist.org/packages/sylouuu/php-curl)
+[![CodeClimate](http://img.shields.io/codeclimate/github/sylouuu/php-curl.svg?style=flat)](https://codeclimate.com/github/sylouuu/php-curl)
 
 ## Requirements
 
