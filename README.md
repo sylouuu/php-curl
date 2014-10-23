@@ -127,6 +127,10 @@ On project directory:
 
 ## Changelog
 
+2014-10-23 - **0.7.1**
+
+* fixed `Post()` which didn't send data in some cases
+
 2014-08-01 - **0.7.0** (BC break)
 
 * moved from psr-0 autoload to psr-4
