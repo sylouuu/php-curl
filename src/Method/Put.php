@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.0
+    * @version 0.7.1
     * @license MIT
     */
     class Put extends \sylouuu\Curl\Curl
@@ -32,11 +32,8 @@
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PUT');
 
             if(isset($this->options['data'])) {
-                // Converting array to an URL-encoded query string
-                $this->options['data'] = http_build_query($this->options['data'], '', '&');
-
                 // Data
-                $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);
+                $this->setCurlOption(CURLOPT_POSTFIELDS, http_build_query($this->options['data']));
             }
         }
     }

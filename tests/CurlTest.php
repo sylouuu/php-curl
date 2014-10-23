@@ -3,33 +3,23 @@
     use \sylouuu\Curl\Method as Curl;
 
     /**
-    * Curl Tests
-    *
-    * Lightweight PHP cURL wrapper
-    *
-    * @author sylouuu
-    * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.0
-    * @license MIT
-    */
+     * Curl Tests
+     *
+     * Lightweight PHP cURL wrapper
+     *
+     * @author sylouuu
+     * @link https://github.com/sylouuu/php-curl
+     * @version 0.7.1
+     * @license MIT
+     */
     class CurlTest extends \PHPUnit_Framework_TestCase
     {
 
-        // Properties
-        private $endpoint;
+        private $endpoint = 'http://headers.jsontest.com/';
 
         /**
-        * Considers as a constructor
-        */
-        public function setUp()
-        {
-            // Setting endpoint URL
-            $this->endpoint = 'http://headers.jsontest.com/';
-        }
-
-        /**
-        * getCurlOptions()
-        */
+         * getCurlOptions()
+         */
         public function testOptionsGetter()
         {
             $request = new Curl\Post($this->endpoint, [
@@ -41,24 +31,24 @@
 
             $options = $request->getCurlOptions();
 
-            $this->assertEquals('foo', $options[10015]['name']);
-            $this->assertEquals('foo@domain.com', $options[10015]['email']);
+            $this->assertTrue(true, strpos($options[10015], 'foo')) !== false;
+            $this->assertTrue(true, strpos($options[10015], 'foo@domain.com')) !== false;
             $this->assertEquals('POST', $options[10036]);
 
             $request->send();
 
             $options = $request->getCurlOptions();
 
-            $this->assertEquals('foo', $options[10015]['name']);
-            $this->assertEquals('foo@domain.com', $options[10015]['email']);
+            $this->assertTrue(true, strpos($options[10015], 'foo')) !== false;
+            $this->assertTrue(true, strpos($options[10015], 'foo@domain.com')) !== false;
             $this->assertEquals('POST', $options[10036]);
             $this->assertEquals(true, $options[19913]);
             $this->assertEquals(true, $options[2]);
         }
 
         /**
-        * setCurlOption()
-        */
+         * setCurlOption()
+         */
         public function testOptionsSetter()
         {
             $request = new Curl\Get($this->endpoint);
@@ -75,8 +65,8 @@
         }
 
         /**
-        * getCurlInfo()
-        */
+         * getCurlInfo()
+         */
         public function testCurlInfoGetter()
         {
             $request = new Curl\Get($this->endpoint, [

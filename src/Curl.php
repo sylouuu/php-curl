@@ -2,13 +2,13 @@
     namespace sylouuu\Curl;
 
     /**
-    * Curl abstracted class
-    *
-    * @author sylouuu
-    * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.0
-    * @license MIT
-    */
+     * Curl abstracted class
+     *
+     * @author sylouuu
+     * @link https://github.com/sylouuu/php-curl
+     * @version 0.7.0
+     * @license MIT
+     */
     abstract class Curl
     {
 
@@ -25,10 +25,10 @@
         protected $response;
 
         /**
-        * Constructor
-        *
-        * @param array $options
-        */
+         * Constructor
+         *
+         * @param array $options
+         */
         public function __construct($url, $options = null)
         {
             if(isset($url)) {
@@ -40,55 +40,55 @@
         }
 
         /**
-        * Getter HTTP status code
-        *
-        * @return integer
-        */
+         * Getter HTTP status code
+         *
+         * @return integer
+         */
         public function getStatus()
         {
             return $this->status;
         }
 
         /**
-        * Getter HTTP header
-        *
-        * @return string
-        */
+         * Getter HTTP header
+         *
+         * @return string
+         */
         public function getHeader()
         {
             return $this->header;
         }
 
         /**
-        * Getter response
-        *
-        * @return mixed
-        */
+         * Getter response
+         *
+         * @return mixed
+         */
         public function getResponse()
         {
             return $this->response;
         }
 
         /**
-        * Getter Curl options
-        *
-        * @return null|array
-        */
+         * Getter Curl options
+         *
+         * @return null|array
+         */
         public function getCurlOptions()
         {
             return $this->curl_options;
         }
 
         /**
-        * Setter Curl option
-        *
-        * See options list: http://php.net/manual/en/function.curl-setopt.php
-        *
-        * @param const $option
-        * @param mixed $value
-        *
-        * @return mixed
-        */
+         * Setter Curl option
+         *
+         * See options list: http://php.net/manual/en/function.curl-setopt.php
+         *
+         * @param const $option
+         * @param mixed $value
+         *
+         * @return mixed
+         */
         public function setCurlOption($option, $value)
         {
             curl_setopt($this->ch, $option, $value);
@@ -99,24 +99,24 @@
         }
 
         /**
-        * Getter Curl info
-        *
-        * See info list: http://php.net/manual/en/function.curl-getinfo.php
-        *
-        * @param const $info
-        *
-        * @return mixed
-        */
+         * Getter Curl info
+         *
+         * See info list: http://php.net/manual/en/function.curl-getinfo.php
+         *
+         * @param const $info
+         *
+         * @return mixed
+         */
         public function getCurlInfo($info)
         {
             return curl_getinfo($this->ch, $info);
         }
 
         /**
-        * Sends the request
-        *
-        * @return $this
-        */
+         * Sends the request
+         *
+         * @return $this
+         */
         public function send()
         {
             // Default options
@@ -153,8 +153,8 @@
         }
 
         /**
-        * Closes the handle
-        */
+         * Closes the handle
+         */
         public function close()
         {
             curl_close($this->ch);

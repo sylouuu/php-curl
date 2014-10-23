@@ -2,20 +2,20 @@
     namespace sylouuu\Curl\Method;
 
     /**
-    * Patch
-    *
-    * @author sylouuu
-    * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.0
-    * @license MIT
-    */
+     * Patch
+     *
+     * @author sylouuu
+     * @link https://github.com/sylouuu/php-curl
+     * @version 0.7.1
+     * @license MIT
+     */
     class Patch extends \sylouuu\Curl\Curl
     {
         /**
-        * Constructor
-        *
-        * @param array $options
-        */
+         * Constructor
+         *
+         * @param array $options
+         */
         public function __construct($url, $options = null)
         {
             parent::__construct($url, $options);
@@ -24,11 +24,10 @@
         }
 
         /**
-        * Prepare the request
-        */
+         * Prepare the request
+         */
         public function prepare()
         {
-            // Option
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PATCH');
 
             if(isset($this->options['data'])) {

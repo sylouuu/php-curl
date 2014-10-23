@@ -6,7 +6,7 @@
     *
     * @author sylouuu
     * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.0
+    * @version 0.7.1
     * @license MIT
     */
     class Post extends \sylouuu\Curl\Curl
@@ -33,7 +33,8 @@
 
             if(isset($this->options['data'])) {
                 // Data
-                $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);
+                $this->setCurlOption(CURLOPT_POST, 1);
+                $this->setCurlOption(CURLOPT_POSTFIELDS, http_build_query($this->options['data']));
             }
         }
     }
