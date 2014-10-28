@@ -32,7 +32,7 @@
 
             if(isset($this->options['data'])) {
                 // Converting array to an URL-encoded query string
-                $this->options['data'] = http_build_query($this->options['data'], '', '&');
+                $this->options['data'] = http_build_query($this->options['data']);
 
                 // Data
                 $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);

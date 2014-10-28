@@ -28,7 +28,6 @@
         */
         public function prepare()
         {
-            // Option
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PUT');
 
             if(isset($this->options['data'])) {

@@ -31,19 +31,19 @@
 
             $options = $request->getCurlOptions();
 
-            $this->assertTrue(true, strpos($options[10015], 'foo')) !== false;
-            $this->assertTrue(true, strpos($options[10015], 'foo@domain.com')) !== false;
+            $this->assertTrue(strpos($options[10015], 'foo') !== false);
+            $this->assertTrue(strpos($options[10015], 'domain.com') !== false);
             $this->assertEquals('POST', $options[10036]);
 
             $request->send();
 
             $options = $request->getCurlOptions();
 
-            $this->assertTrue(true, strpos($options[10015], 'foo')) !== false;
-            $this->assertTrue(true, strpos($options[10015], 'foo@domain.com')) !== false;
+            $this->assertTrue(strpos($options[10015], 'foo') !== false);
+            $this->assertTrue(strpos($options[10015], 'domain.com') !== false);
             $this->assertEquals('POST', $options[10036]);
-            $this->assertEquals(true, $options[19913]);
-            $this->assertEquals(true, $options[2]);
+            $this->assertTrue($options[19913]);
+            $this->assertTrue($options[2]);
         }
 
         /**
@@ -55,13 +55,13 @@
 
             $options = $request->getCurlOptions();
 
-            $this->assertEquals(null, $options[27]);
+            $this->assertNull($options[27]);
 
             $request->setCurlOption(CURLOPT_CRLF, true);
 
             $options = $request->getCurlOptions();
 
-            $this->assertEquals(true, $options[27]);
+            $this->assertTrue($options[27]);
         }
 
         /**

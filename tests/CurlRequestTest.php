@@ -50,7 +50,7 @@
             $request->send();
 
             $this->assertEquals(200, $request->getStatus());
-            $this->assertEquals(true, (strpos($request->getHeader(), 'Authorization: foobar') !== false));
+            $this->assertTrue(strpos($request->getHeader(), 'Authorization: foobar') !== false);
         }
 
         /**
