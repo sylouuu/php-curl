@@ -35,7 +35,15 @@ use sylouuu\Curl\Method as Curl;
 $request = new Curl\<METHOD_NAME>( string $url [, array $options ] );
 ```
 
-Methods are: `Get`, `Head`, `Options`, `Post`, `Put`, `Patch` and `Delete`.
+Methods are:
+
+* `Get()`
+* `Head()`
+* `Options()`
+* `Post()`
+* `Put()`
+* `Patch()`
+* `Delete()`
 
 ### Constructor `$options`
 
