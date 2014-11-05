@@ -6,7 +6,7 @@
      *
      * @author sylouuu
      * @link https://github.com/sylouuu/php-curl
-     * @version 0.7.0
+     * @version 0.7.1
      * @license MIT
      */
     abstract class Curl
@@ -27,6 +27,7 @@
         /**
          * Constructor
          *
+         * @param string $url
          * @param array $options
          */
         public function __construct($url, $options = null)
@@ -86,7 +87,6 @@
          *
          * @param const $option
          * @param mixed $value
-         *
          * @return mixed
          */
         public function setCurlOption($option, $value)
@@ -104,7 +104,6 @@
          * See info list: http://php.net/manual/en/function.curl-getinfo.php
          *
          * @param const $info
-         *
          * @return mixed
          */
         public function getCurlInfo($info)

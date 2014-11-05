@@ -14,6 +14,7 @@
         /**
          * Constructor
          *
+         * @param string $url
          * @param array $options
          */
         public function __construct($url, $options = null)
@@ -31,11 +32,8 @@
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PATCH');
 
             if(isset($this->options['data'])) {
-                // Converting array to an URL-encoded query string
-                $this->options['data'] = http_build_query($this->options['data']);
-
                 // Data
-                $this->setCurlOption(CURLOPT_POSTFIELDS, $this->options['data']);
+                $this->setCurlOption(CURLOPT_POSTFIELDS, http_build_query($this->options['data']));
             }
         }
     }

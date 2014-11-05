@@ -2,20 +2,21 @@
     namespace sylouuu\Curl\Method;
 
     /**
-    * Put
-    *
-    * @author sylouuu
-    * @link https://github.com/sylouuu/php-curl
-    * @version 0.7.1
-    * @license MIT
-    */
+     * Put
+     *
+     * @author sylouuu
+     * @link https://github.com/sylouuu/php-curl
+     * @version 0.7.1
+     * @license MIT
+     */
     class Put extends \sylouuu\Curl\Curl
     {
         /**
-        * Constructor
-        *
-        * @param array $options
-        */
+         * Constructor
+         *
+         * @param string $url
+         * @param array $options
+         */
         public function __construct($url, $options = null)
         {
             parent::__construct($url, $options);
@@ -24,8 +25,8 @@
         }
 
         /**
-        * Prepare the request
-        */
+         * Prepare the request
+         */
         public function prepare()
         {
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PUT');
