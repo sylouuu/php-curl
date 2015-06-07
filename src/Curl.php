@@ -118,37 +118,50 @@
          */
         public function send()
         {
-            // Default options
-            $this->setCurlOption(CURLOPT_RETURNTRANSFER, true);
-            $this->setCurlOption(CURLINFO_HEADER_OUT, true);
+            try 
+            {
+                // Default options
+                $this->setCurlOption(CURLOPT_RETURNTRANSFER, true);
+                $this->setCurlOption(CURLINFO_HEADER_OUT, true);
 
-            // Additional headers
-            if(isset($this->options['headers']) && count($this->options['headers']) > 0) {
-                $this->setCurlOption(CURLOPT_HTTPHEADER, $this->options['headers']);
+                // Additional headers
+                if(isset($this->options['headers']) && count($this->options['headers']) > 0) {
+                    $this->setCurlOption(CURLOPT_HTTPHEADER, $this->options['headers']);
+                }
+
+                // SSL
+                if(isset($options['ssl'])) {
+                    $this->setCurlOption(CURLOPT_SSL_VERIFYPEER, true);
+                    $this->setCurlOption(CURLOPT_SSL_VERIFYHOST, 2);
+                    $this->setCurlOption(CURLOPT_CAINFO, getcwd() . $options['ssl']);
+                }
+
+                // Retrieving HTTP response body
+                $this->response = curl_exec($this->ch);
+                if(false === $this->response)
+                    throw new \Exception(curl_error($this->ch), curl_errno($this->ch));
+                    
+
+                // Retrieving HTTP status code
+                $this->status = $this->getCurlInfo(CURLINFO_HTTP_CODE);
+
+                // Retrieving HTTP header
+                $this->header = $this->getCurlInfo(CURLINFO_HEADER_OUT);
+
+                // Autoclose handle
+                if(!isset($this->options['autoclose']) || (isset($this->options['autoclose']) && $this->options['autoclose'] !== false)) {
+                    $this->close();
+                }
+
+                return $this;
+            } 
+            catch(\Exception $e) 
+            {
+                trigger_error(sprintf(
+                'Curl failed with error #%d: %s',
+                $e->getCode(), $e->getMessage()),
+                E_USER_ERROR);
             }
-
-            // SSL
-            if(isset($options['ssl'])) {
-                $this->setCurlOption(CURLOPT_SSL_VERIFYPEER, true);
-                $this->setCurlOption(CURLOPT_SSL_VERIFYHOST, 2);
-                $this->setCurlOption(CURLOPT_CAINFO, getcwd() . $options['ssl']);
-            }
-
-            // Retrieving HTTP response body
-            $this->response = curl_exec($this->ch);
-
-            // Retrieving HTTP status code
-            $this->status = $this->getCurlInfo(CURLINFO_HTTP_CODE);
-
-            // Retrieving HTTP header
-            $this->header = $this->getCurlInfo(CURLINFO_HEADER_OUT);
-
-            // Autoclose handle
-            if(!isset($this->options['autoclose']) || (isset($this->options['autoclose']) && $this->options['autoclose'] !== false)) {
-                $this->close();
-            }
-
-            return $this;
         }
 
         /**
