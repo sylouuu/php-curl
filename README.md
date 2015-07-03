@@ -16,7 +16,7 @@
 ```js
 {
     "require": {
-        "sylouuu/php-curl": "0.7.*"
+        "sylouuu/php-curl": "0.8.*"
     }
 }
 ```
@@ -49,15 +49,15 @@ Methods are:
 
 ```php
 [
-    'data' => [                    // Data to send, available for `Post`, `Put` and `Patch`
+    'data' => [                  // Data to send, available for `Post`, `Put` and `Patch`
         'foo' => 'bar'
     ],
-    'headers' => [                 // Additional headers (optional)
+    'headers' => [               // Additional headers (optional)
         'Authorization: foobar'
     ],
-    'ssl' => '/cacert.pem',        // Use it for SSL (optional)
-    'is_payload' => true           // Set to true if sending a payload (JSON-encoded data)
-    'autoclose' => true            // Is the request must be automatically closed (optional)
+    'ssl' => '/cacert.pem',      // Use it for SSL (optional)
+    'is_payload' => true,        // `true` for sending a payload (JSON-encoded data, optional)
+    'autoclose' => true          // Is the request must be automatically closed (optional)
 ]
 ```
 
@@ -116,8 +116,8 @@ $request = new Curl\Post($this->endpoint, [
         'name' => 'foo',
         'email' => 'foo@domain.com'
     ],
-    // With 'is_payload' => true:
-    // You don't have to json_encode() your data array
+    // With 'is_payload' => true
+    // You don't have to json_encode() your array of data
     // Moreover, the appropriate headers will be set for you
     'is_payload' => true
 ]);
