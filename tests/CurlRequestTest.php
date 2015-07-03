@@ -9,7 +9,7 @@
      *
      * @author sylouuu
      * @link https://github.com/sylouuu/php-curl
-     * @version 0.7.1
+     * @version 0.8.0
      * @license MIT
      */
     class CurlRequestTest extends \PHPUnit_Framework_TestCase
@@ -85,6 +85,30 @@
 
             $this->assertEquals('morpheus', $response['name']);
             $this->assertEquals('leader', $response['job']);
+            $this->assertArrayHasKey('id', $response);
+        }
+
+        /**
+         * JSON-encoded POST request
+         */
+        public function testPostUserWithPayload()
+        {
+            $request = new Curl\Post($this->endpoint .'users', [
+                'data' => [
+                    'name' => 'syl',
+                    'job' => 'developer'
+                ],
+                'is_payload' => true
+            ]);
+
+            $request->send();
+
+            $this->assertEquals(201, $request->getStatus());
+
+            $response = json_decode($request->getResponse(), true);
+
+            $this->assertEquals('syl', $response['name']);
+            $this->assertEquals('developer', $response['job']);
             $this->assertArrayHasKey('id', $response);
         }
 

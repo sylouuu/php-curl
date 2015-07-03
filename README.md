@@ -56,6 +56,7 @@ Methods are:
         'Authorization: foobar'
     ],
     'ssl' => '/cacert.pem',        // Use it for SSL (optional)
+    'is_payload' => true           // Set to true if sending a payload (JSON-encoded data)
     'autoclose' => true            // Is the request must be automatically closed (optional)
 ]
 ```
@@ -103,7 +104,32 @@ echo $request->getResponse(); // body response
 echo $request->getStatus(); // HTTP status code
 ```
 
-Manual:
+Send a payload:
+
+```php
+// Namespace shortcut
+use sylouuu\Curl\Method as Curl;
+
+// JSON-encoded POST request
+$request = new Curl\Post($this->endpoint, [
+    'data' => [
+        'name' => 'foo',
+        'email' => 'foo@domain.com'
+    ],
+    // With 'is_payload' => true:
+    // You don't have to json_encode() your data array
+    // Moreover, the appropriate headers will be set for you
+    'is_payload' => true
+]);
+
+// Send this request
+$request->send();
+
+echo $request->getResponse(); // body response
+echo $request->getStatus(); // HTTP status code
+```
+
+Manual closing:
 
 ```php
 // Namespace shortcut
@@ -134,6 +160,11 @@ On project directory:
 * `phpunit` to run tests
 
 ## Changelog
+
+2015-07-03 - **0.8.0**
+
+* added `is_payload` option to perform a request with JSON-encoded data
+* fixed `ssl` option
 
 2014-10-23 - **0.7.1**
 

@@ -6,7 +6,7 @@
      *
      * @author sylouuu
      * @link https://github.com/sylouuu/php-curl
-     * @version 0.7.1
+     * @version 0.8.0
      * @license MIT
      */
     abstract class Curl
@@ -34,6 +34,8 @@
         {
             if(isset($url)) {
                 $this->options = $options;
+
+                $this->options['request_headers'] = [];
 
                 // Init cURL
                 $this->ch = curl_init($url);
@@ -124,14 +126,28 @@
 
             // Additional headers
             if(isset($this->options['headers']) && count($this->options['headers']) > 0) {
-                $this->setCurlOption(CURLOPT_HTTPHEADER, $this->options['headers']);
+                $this->options['request_headers'] = array_merge($this->options['request_headers'], $this->options['headers']);
             }
 
             // SSL
-            if(isset($options['ssl'])) {
+            if(isset($this->options['ssl'])) {
                 $this->setCurlOption(CURLOPT_SSL_VERIFYPEER, true);
                 $this->setCurlOption(CURLOPT_SSL_VERIFYHOST, 2);
-                $this->setCurlOption(CURLOPT_CAINFO, getcwd() . $options['ssl']);
+                $this->setCurlOption(CURLOPT_CAINFO, getcwd() . $this->options['ssl']);
+            }
+
+            // Payload
+            if(isset($this->options['is_payload']) && $this->options['is_payload'] === true) {
+                // Appropriate headers for sending a JSON object
+                $this->options['request_headers'] = array_merge($this->options['request_headers'], [
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen(json_encode($this->options['data']))
+                ]);
+            }
+
+            // Set headers
+            if (count($this->options['request_headers']) > 0) {
+                $this->setCurlOption(CURLOPT_HTTPHEADER, $this->options['request_headers']);
             }
 
             // Retrieving HTTP response body
