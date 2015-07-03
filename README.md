@@ -49,15 +49,15 @@ Methods are:
 
 ```php
 [
-    'data' => [                  // Data to send, available for `Post`, `Put` and `Patch`
+    'data' => [             // Data to send, available for `Post`, `Put` and `Patch`
         'foo' => 'bar'
     ],
-    'headers' => [               // Additional headers (optional)
+    'headers' => [          // Additional headers (optional)
         'Authorization: foobar'
     ],
-    'ssl' => '/cacert.pem',      // Use it for SSL (optional)
-    'is_payload' => true,        // `true` for sending a payload (JSON-encoded data, optional)
-    'autoclose' => true          // Is the request must be automatically closed (optional)
+    'ssl' => '/cacert.pem', // Use it for SSL (optional)
+    'is_payload' => true,   // `true` for sending a payload (JSON-encoded data, optional)
+    'autoclose' => true     // Is the request must be automatically closed (optional)
 ]
 ```
 
