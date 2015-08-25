@@ -141,7 +141,7 @@
                 // Appropriate headers for sending a JSON object
                 $this->options['request_headers'] = array_merge($this->options['request_headers'], [
                     'Content-Type: application/json',
-                    'Content-Length: ' . strlen(json_encode($this->options['data']))
+                    'Content-Length: ' . ((isset($this->options['data'])) ? strlen(json_encode($this->options['data'])) : 0)
                 ]);
             }
 
