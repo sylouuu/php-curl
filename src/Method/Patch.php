@@ -6,7 +6,7 @@
      *
      * @author sylouuu
      * @link https://github.com/sylouuu/php-curl
-     * @version 0.8.0
+     * @version 0.8.1
      * @license MIT
      */
     class Patch extends \sylouuu\Curl\Curl

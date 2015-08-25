@@ -161,6 +161,10 @@ On project directory:
 
 ## Changelog
 
+2015-08-25 - **0.8.1**
+
+* fixed invalid content-length in case of no data provided
+
 2015-07-03 - **0.8.0**
 
 * added `is_payload` option to perform a request with JSON-encoded data
